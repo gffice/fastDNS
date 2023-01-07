@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: 自己更新hosts
+name: 自动更新hosts
 
 # Controls when the workflow will run
 on:
@@ -37,3 +37,14 @@ jobs:
           echo test, and deploy your project.
           chmod 777 ip.sh
           ./ip.sh $(cat ip.txt) >>hosts.txt
+      - name: Commit change
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git pull origin master
+          git add ./hosts.txt
+          git commit -m "在$(date '+%Y-%m-%d %H:%M:%S')自动更新DNS记录"
+      - name: 上传
+        uses:  ad-m/github-push-action@master
+        with:
+          branch: master
