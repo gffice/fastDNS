@@ -35,6 +35,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          rm hosts.txt
           chmod 777 ip.sh
           ./ip.sh $(cat ip.txt) >>hosts.txt
       - name: Commit change
