@@ -10,3 +10,4 @@ for i in "$@"; do
     echo ${TMPSTR}"    "${ADDR}
 done
 curl https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
+curl https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
