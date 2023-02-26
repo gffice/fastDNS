@@ -9,3 +9,4 @@ for i in "$@"; do
     TMPSTR=`ping -c 1 ${ADDR} | sed '1{s/[^(]*(//;s/).*//;q}'`
     echo ${TMPSTR}"    "${ADDR}
 done
+curl https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
